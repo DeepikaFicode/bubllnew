@@ -1,0 +1,162 @@
+<div class="page-head">
+  <h2>Company Profile</h2>
+  <ul>
+    <li><a href="#">Super User Dashboard </a></li>
+    <li>Company Profile</li>
+  </ul>
+</div>
+
+
+<div class="row">
+  <div class="col-md-12">
+    <div class="profile-view">
+      <div class="card">
+        <div class="card-body top-section">
+          <div class="m-t-30 text-center"><img class="rounded-circle" src="assets/images/Dell_logo.png" width="150">
+            <!--  <h4 class="card-title m-t-10">Dell</h4>-->
+          </div>
+          <p class="about-content">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+        </div>
+        <p class="expand"><a href="#">More Info <i class="fa fa-angle-double-down" aria-hidden="true"></i></a></p>
+        <div class="card-body cmpny-dtls">
+          <div class="left-bar">
+            <div class="listing"> <small class="text-muted p-t-30 db">Contact Person</small>
+              <h6>Nihal Rajput</h6>
+            </div>
+            <div class="listing"> <small class="text-muted p-t-30 db">Phone</small>
+              <h6>+91 654 784 547</h6>
+            </div>
+            <div class="listing"> <small class="text-muted p-t-30 db">Address</small>
+              <h6>126 Fox Lane, BOBBINGWORTH</h6>
+            </div>
+            <div class="listing"> <small class="text-muted p-t-30 db">Number of Sites</small>
+              <h6>14</h6>
+            </div>
+            <div class="listing"> <small class="text-muted p-t-30 db">Number of Company User</small>
+              <h6>Active</h6>
+            </div>
+            <div class="listing"> <small class="text-muted p-t-30 db">Language</small>
+              <h6>English</h6>
+            </div>
+            <div class="listing"> <small class="text-muted p-t-30 db">Valid From</small>
+              <h6>01/03/2019</h6>
+            </div>
+            <div class="listing"> <small class="text-muted p-t-30 db">Valid To</small>
+              <h6>31/05/2019</h6>
+            </div>
+            <div class="listing"> <small class="text-muted p-t-30 db">Contact Status</small>
+              <h6>Active</h6>
+            </div>
+            <div class="social-links"> <small class="text-muted p-t-30 db">Social Profile</small>
+              <button class="btn btn-circle btn-secondary"><i class="fa fa-facebook" aria-hidden="true"></i></button>
+              <button class="btn btn-circle btn-secondary"><i class="fa fa-twitter"></i></button>
+              <button class="btn btn-circle btn-secondary"><i class="fa fa-youtube-play"></i></button>
+            </div>
+          </div>
+          <div class="mid-bar">
+            <div class="button-set"> <a href="#">Modify</a> <a href="#">Change status</a> <a href="#">Reset Password</a> </div>
+          </div>
+          <div class="right-bar">
+            <div class="adress-info">
+              <div class="map-box">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3508.9891085355225!2d77.03589641542608!3d28.41958550043687!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390d229e71ef44dd%3A0x9931b80f30d32dd3!2sJMD+Megapolis!5e0!3m2!1sen!2sin!4v1552905604003" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
+              </div>
+            </div>
+          </div>
+        </div></div></div></div></div>
+<div class="company-tables">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="main-content">
+        <div class="form-group">
+          <div class="row">
+            <div class="col-sm-3">
+              <label>Search Type</label>
+              <select class="form-control" name="state" id="maxRows">
+                <option value="all">All Data</option>
+                <option value="active">Active Data</option>
+                <option value="archiev">Archive Data</option>
+              </select>
+            </div>
+
+
+            <div class="col-sm-3">
+              <div class="form-group">
+                <label for="fromdate">From Date</label>
+                <input id="fromdate" name="fromdate" [(ngModel)]="fromdate"
+                       type="date" class="form-control" />
+              </div>
+            </div>
+
+
+            <div class="col-sm-3">
+              <div class="form-group">
+                <label for="todate">To Date </label>
+                <input id="todate" name="todate" [(ngModel)]="todate"
+                       type="date" class="form-control" />
+              </div>
+
+            </div>
+            <div class="col-sm-3 buttons m-t33"> <button class="btn dark-blue" (click)='registeredUser($event)'>Search</button> <a class="btn" href="#">Back</a> </div>
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+    <div class="col-md-12">
+      <div class="main-content">
+        <div class="top-header">
+          <h3>System Event(s)</h3>
+          <div class="event-num">
+            <!--		Show Numbers Of Rows 	-->
+            <select class="form-control mar-right10" name="state" id="maxRows">
+              <option value="1">Export To Excel</option>
+              <option value="2">Archive Data And Export To Excel</option>
+            </select>
+            <div class="buttons "><a class="btn " (click)="exportAsXLSX()">Submit</a></div>
+          </div>
+        </div>
+        <table class="table table-class user-table" id="table-id">
+          <thead>
+          <th>Row</th>
+          <th>User Name</th>
+          <th>Device Name</th>
+          <th>Room Name</th>
+          <th>Object Name</th>
+          <th>Object Status</th>
+          <th>Related Object</th>
+          <th>Date Time</th>
+          </thead>
+          <tbody>
+          <tr *ngFor="let item of filterData">
+            <td>{{item.row}}</td>
+            <td>{{item.userName}}</td>
+            <td>{{item.deviceName}}</td>
+            <td>{{item.roomName}}</td>
+            <td>{{item.objectName}}</td>
+            <td>{{item.objectStatus}}</td>
+            <td><a href="">View</a></td>
+            <td>{{item.dateTime}}</td>
+
+
+          </tr>
+
+
+          </tbody>
+        </table>
+        <div class="pagination-container">
+          <nav>
+            <ul class="pagination">
+              <li data-page="1" class="active"> <span>1<span class="sr-only">(current)</span></span> </li>
+              <li data-page="2"> <span>2<span class="sr-only">(current)</span></span> </li>
+              <li data-page="3"> <span>3<span class="sr-only">(current)</span></span> </li>
+            </ul>
+          </nav>
+          <div class="rows_count">Showing 1 to 10 of 27 entries</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+

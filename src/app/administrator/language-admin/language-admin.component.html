@@ -1,0 +1,109 @@
+<div [className]="'page-head'">
+  <h2>Add Language</h2>
+  <div [className]="'right-bar'">
+    <ul>
+      <li><a [routerLink]="['/administrator/dashboard']">Dashboard </a></li>
+      <li>Add Language</li>
+    </ul>
+  </div>
+</div>
+<div [className]="'company-tables'">
+  <div [className]="'row'">
+    <div [className]="'col-md-12'">
+      <div [className]="'main-content'">
+        <div [className]="'row'">
+          <div [className]="'col-sm-12 top-header-sec'">
+            <h3>Add Language</h3>
+
+          </div>
+          <div [className]="'col-sm-4'">
+            <label>Language <span [className]="'required'">*</span> </label>
+            <select [className]="'form-control'" name="state" id="maxRows">
+              <option value="all">All Data</option>
+              <option value="active">Active Data</option>
+              <option value="archiev">Archive Data</option>
+            </select>
+          </div>
+          <div [className]="'col-md-4'">
+            <label>Icon<span [className]="'required'">*</span></label>
+            <div>
+              <div [className]="'upload-btn-wrapper'">
+                <button [className]="'btn'">Browse Icon</button>
+                <input type="file" name="myfile">
+              </div>
+            </div>
+          </div>
+          <div [className]="'col-sm-6 buttons m-t33'">
+            <a [className]="'btn dark-blue'" href="#">Submit</a>
+            <a [className]="'btn'" [routerLink]="['/administrator/']">Back</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+    <div [className]="'col-md-12'">
+      <div [className]="'main-content'">
+        <div [className]="'top-header'">
+          <h3>Language(s)</h3>
+          <div [className]="'event-num'">
+            <div [className]="'buttons'"><a [className]="'btn dark-blue'" href="#">Export To Excel</a></div>
+          </div>
+        </div>
+        <table [className]="'table table-class user-table'" id="table-id">
+          <thead>
+            <th>Row</th>
+            <th>Language</th>
+            <th>Code</th>
+            <th>Flag</th>
+            <th>Action</th>
+
+          </thead>
+          <tbody>
+            <tr>
+              <td>1</td>
+              <td>karanveer</td>
+              <td>deepak+2@ficode.in</td>
+              <td>9897453523</td>
+              <td>
+                  <a [className]="'btn dark-blue'" href="#">Modify</a>                
+                  <a [className]="'btn dark-red'" href="#">Delete</a>
+                </td>
+            </tr>
+            <tr>
+              <td>1</td>
+              <td>karanveer</td>
+              <td>deepak+2@ficode.in</td>
+              <td>9897453523</td>
+              <td>
+                  <a [className]="'btn dark-blue'" href="#">Modify</a>                
+                  <a [className]="'btn dark-red'" href="#">Delete</a>
+                </td>
+            </tr>
+            <tr>
+              <td>1</td>
+              <td>karanveer</td>
+              <td>deepak+2@ficode.in</td>
+              <td>9897453523</td>
+              <td>
+                <a [className]="'btn dark-blue'" href="#">Modify</a>                
+                <a [className]="'btn dark-red'" href="#">Delete</a>
+              </td>
+            </tr>
+
+          </tbody>
+        </table>
+        <div [className]="'pagination-container'">
+          <nav>
+            <ul [className]="'pagination'">
+              <li data-page="1" [className]="'active'"> <span>1<span [className]="'sr-only'">(current)</span></span> </li>
+              <li data-page="2"> <span>2<span [className]="'sr-only'">(current)</span></span> </li>
+              <li data-page="3"> <span>3<span [className]="'sr-only'">(current)</span></span> </li>
+            </ul>
+          </nav>
+          <div [className]="'rows_count'">Showing 1 to 10 of 27 entries</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>

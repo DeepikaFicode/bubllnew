@@ -1,0 +1,880 @@
+/** Custom Fonts Used **/
+@font-face {
+    font-family: 'Arial-Rounded';
+    src: url("../fonts/Arial-Rounded.eot?#iefix") format("embedded-opentype"), url("../fonts/Arial-Rounded.woff") format("woff"), url("../fonts/Arial-Rounded.ttf") format("truetype"), url("../fonts/Arial-Rounded.svg#Arial-Rounded") format("svg");
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'ArialRoundedMTBold';
+    src: url("../fonts/ArialRoundedMTBold.eot?#iefix") format("embedded-opentype"), url("../fonts/ArialRoundedMTBold.woff") format("woff"), url("../fonts/ArialRoundedMTBold.ttf") format("truetype"), url("../fonts/ArialRoundedMTBold.svg#ArialRoundedMTBold") format("svg");
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'ArialRoundedMTStd';
+    src: url("../fonts/ArialRoundedMTStd.eot?#iefix") format("embedded-opentype"), url("../fonts/ArialRoundedMTStd.otf") format("opentype"), url("../fonts/ArialRoundedMTStd.woff") format("woff"), url("../fonts/ArialRoundedMTStd.ttf") format("truetype"), url("../fonts/ArialRoundedMTStd.svg#ArialRoundedMTStd") format("svg");
+    font-weight: normal;
+    font-style: normal;
+}
+
+/*---------------------------------------------------------------------
+- Reset
+--------------------------------------------------------------------*/
+* {
+    margin: 0px;
+    padding: 0px;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+::-webkit-scrollbar {
+    min-width: 3px;
+    width: 0.3%;
+    max-width: 4px;
+}
+
+::-webkit-scrollbar,
+::-webkit-scrollbar-track,
+::-webkit-scrollbar-track-piece {
+    background: #171719;
+}
+
+::-webkit-scrollbar-button,
+::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.6);
+}
+
+.preloader {
+    background: #fff none repeat scroll 0 0;
+    bottom: 0;
+    left: 0;
+    position: fixed;
+    right: 0;
+    top: 0;
+    z-index: 999999;
+}
+
+.preloader > span {
+    display: inline-block;
+    font-size: 24px;
+    height: 200px;
+    left: 50%;
+    line-height: 200px;
+    position: absolute;
+    margin-left: -100px;
+    margin-top: -100px;
+    top: 50%;
+    width: 200px;
+    color: #000;
+    text-align: center;
+    overflow: hidden;
+}
+
+.preloader > span img {
+    width: 150px;
+    height: 150px;
+}
+
+body,
+html {
+    height: 100%;
+    font-family: Poppins, sans-serif !important;
+    font-style: normal;
+}
+
+body {
+    background: url(../images/main-bg.png) no-repeat center top;
+    background-size: cover;
+    position: relative;
+}
+
+canvas#bubble {
+    position: absolute;
+    z-index: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.content-wrapper {
+   background: rgba(255, 255, 255, 0.88);
+}
+
+.navbar-nav .nav-link i {
+    position: relative;
+    top: -3px;
+}
+
+.page-head {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 0 15px;
+}
+
+.page-head h2 {
+    color: #000;
+    font-size: 20px;
+    text-transform: capitalize;
+}
+
+.page-head ul li {
+    list-style: none;
+    display: inline;
+}
+
+.page-head ul li + li {
+    padding-left: .5rem;
+}
+
+.page-head ul li + li:before {
+    content: "\f105";
+    font-family: 'fontAwesome';
+    color: #6a6b6b;
+    font-size: 13px;
+    padding-right: .5rem;
+}
+
+.page-head ul li a {
+    color: #000;
+    font-size: 12px;
+}
+
+.page-head ul li {
+    color: #353535;
+    font-size: 12px;
+}
+
+.content-boxes {}
+
+.card {
+    background-color: rgba(255, 255, 255, 0.47);
+}
+
+.card-body h5.card-title {
+    color: #000;
+}
+
+.card-body .card-text {
+    color: #000;
+}
+
+.card-group .col-md-4 {
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    border-right: 1px solid #00335f;
+    background: #00335f;
+
+}
+
+.info-box .card i {
+    color: #fff;
+    font-size: 50px;
+}
+
+ul.navbar-nav.navbar-nav-right {
+    z-index: 2;
+}
+
+.user-profile {
+    padding: 15px;
+    text-align: center;
+    display: none;
+}
+
+.user-profile .user-pic img {
+    width: 60px;
+}
+
+.user-profile .user-name {
+    color: #fff;
+    position: relative;
+    white-space: nowrap;
+    margin: 10px 0 0;
+}
+
+.card .no-gutters {
+    height: 100%;
+}
+
+.card-body h6 {
+    color: #000;
+    font-size: 13px;
+    width: 45%;
+    display: inline-block;
+    vertical-align: middle;
+    margin: 0;
+}
+
+h4.card-title.m-t-10 {
+    color: #fff;
+    margin: 10px 0;
+}
+
+.btn-circle {
+    border-radius: 100%;
+    width: 40px;
+    height: 40px;
+    padding: 10px;
+}
+
+.btn-secondary {
+    color: #fff;
+    background-color: #6c757d;
+    border-color: #6c757d;
+}
+
+.right-bar small.text-muted.p-t-30.db {
+    vertical-align: middle;
+    display: inline-block;
+    margin: 0;
+}
+
+.profile-view .card-body button.btn {
+    margin: 0 5px 0;
+    cursor: pointer;
+}
+
+.main-content {
+    margin: 0 0 15px;
+}
+
+/*
+.user-table td:first-child, .user-table th:first-child {
+    display: none;
+}
+*/
+a.add-btn {
+    color: #00335f;
+    font-size: 15px;
+    line-height: 0;
+}
+
+.card-body.cmpny-dtls {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    flex-direction: row;
+    flex: inherit;
+    border-top: 1px solid rgba(76, 76, 76, 0.37);
+    display: none;
+}
+
+.listing {
+    display: inline-block;
+    margin: 0 0 10px;
+    width: 48%;
+}
+
+.button-set {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    margin: 0 0 5px;
+}
+
+.button-set a {
+    background: #00335f;
+    color: #fff;
+    width: 48%;
+    margin: 0 0 9px;
+    text-align: center;
+    padding: 10px 5px;
+    border-radius: 5px;
+    font-weight: 500;
+    font-size: 14px;
+    transition: all 0.3s ease-in-out;
+    -webkit-transition: all 0.3s ease-in-out;
+}
+
+.button-set a:hover {
+    background: #2a58ad;
+    color: #fff;
+    text-decoration: none;
+}
+
+.map-box iframe {
+    width: 100%;
+    height: 180px;
+}
+
+.btn-secondary:hover {
+    color: #fff;
+    background-color: #6c757d;
+    border-color: #666e76;
+    box-shadow: 0 0 0 0.2rem rgba(134, 142, 150, .5);
+}
+
+.card-body.cmpny-dtls .left-bar {
+    width: 58%;
+    text-align: left;
+    display: inline-block;
+    vertical-align: top;
+}
+
+.card-body.cmpny-dtls .right-bar {
+    width: 40%;
+    display: inline-block;
+    vertical-align: top;
+}
+
+.adress-info {
+    width: 100%;
+    margin: 20px 0 0;
+}
+
+p.expand {
+    text-align: center;
+    padding: 0 15px;
+}
+
+.expand a {
+    color: #000;
+    font-size: 16px;
+    text-transform: capitalize;
+    text-decoration: none;
+}
+
+.expand a i {
+    display: block;
+}
+
+.map-box {
+    margin: 0 0 10px;
+}
+
+.card.mb-3 {
+    max-width: 100% !important;
+}
+
+.info-box .card.mb-3 {
+    box-shadow: 0 0 3px #b3b4b5;
+}
+
+/****************************Version2 css starts here**************************************************************/
+
+.version2 .sidebar {
+    background: #1f1d24;
+    background: -moz-linear-gradient(-45deg, #1f1d24 1%, #33273d 50%, #33273d 52%, #4b345c 100%);
+    background: -webkit-linear-gradient(-45deg, #1f1d24 1%, #33273d 50%, #33273d 52%, #4b345c 100%);
+    background: linear-gradient(135deg, #1f1d24 1%, #33273d 50%, #33273d 52%, #4b345c 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#1f1d24', endColorstr='#4b345c', GradientType=1);
+}
+
+.version2 .navbar .navbar-brand-wrapper {
+    background: #1f1d24;
+    background: -moz-linear-gradient(-45deg, #1f1d24 1%, #33273d 50%, #33273d 52%, #4b345c 100%);
+    background: -webkit-linear-gradient(-45deg, #1f1d24 1%, #33273d 50%, #33273d 52%, #4b345c 100%);
+    background: linear-gradient(135deg, #1f1d24 1%, #33273d 50%, #33273d 52%, #4b345c 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#1f1d24', endColorstr='#4b345c', GradientType=1);
+}
+
+.version2 .navbar .navbar-menu-wrapper {
+    background: #1f1d24;
+    background: -moz-linear-gradient(-45deg, #1f1d24 1%, #33273d 50%, #33273d 52%, #4b345c 100%);
+    background: -webkit-linear-gradient(-45deg, #1f1d24 1%, #33273d 50%, #33273d 52%, #4b345c 100%);
+    background: linear-gradient(135deg, #1f1d24 1%, #33273d 50%, #33273d 52%, #4b345c 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#1f1d24', endColorstr='#4b345c', GradientType=1);
+    border-left: 1px solid #151619;
+}
+
+.version2 .navbar {
+    border-bottom: 1px solid #151619;
+}
+
+.version2.sidebar-icon-only .sidebar .nav .nav-item.hover-open .nav-link .menu-title {
+    background: #1c1323;
+}
+
+.version2 .card-group .col-md-4 {
+    background: #1c1323;
+    border-right: 1px solid #1c1323;
+}
+
+.version2 .content-wrapper {
+    background: #1c1b23e3;
+}
+
+.version2 .card,
+.version2 .main-content {
+    background-color: rgba(66, 55, 81, 0.85);
+}
+
+.version2 .page-head h2,
+.version2 .card-body h5.card-title,
+.version2 .card-body .card-text,
+.version2 .about-content,
+.version2 .page-head ul li a,
+.version2 .page-head ul li,
+.version2 .top-header h3,
+.version2 table th,
+.version2 table td,
+.version2 .footer span,
+.version2 .listing small,
+.version2 .card-body h6 {
+    color: #fff !important;
+}
+
+.version2 .info-box .card.mb-3 {
+    box-shadow: none;
+}
+
+.version2 a.add-btn {
+    color: #fe417b;
+}
+
+.version2 .table td a.btn,
+.version2 .button-set a {
+    background: #1c1323
+}
+
+.version2 .footer {
+    background: #1d1e26;
+}
+
+.version2 .footer a,
+.version2 .expand a {
+    color: #fff;
+}
+
+.version2 .right-bar small.text-muted.p-t-30.db {
+    color: #fff !important;
+}
+
+.version2 .sidebar .nav:not(.sub-menu) > .nav-item:hover > .nav-link {
+    background: #1c1323;
+    color: #fff;
+}
+
+/****************************Version3 css starts here**************************************************************/
+.version3 .map-box {
+    margin: 0 0 10px;
+    height: 290px;
+}
+.version3 .map-box iframe {
+    width: 100%;
+    height: 100%;
+}
+
+.version3 .button-set {
+    justify-content: flex-start;
+    margin: 15px 0 5px;
+}
+
+.version3 .adress-info {
+    margin: 0;
+}
+
+.version3 .card-body.cmpny-dtls .right-bar {
+    width: 40%;
+    display: inline-block;
+    vertical-align: top;
+    margin-left: 5px;
+}
+
+.version3 .button-set a {
+    width: 44%;
+    margin: 0 5px 9px;
+}
+
+/****************************************************Table css*****************************************************/
+
+.table tr {
+    border-top: 1px solid #bfbfbf;
+}
+
+table th,
+table td {
+    text-align: center;
+    border: 0 !important;
+    color: #000;
+    font-size: 13px;
+    text-align: left;
+    padding: .75rem .25rem;
+}
+
+table tr:nth-child(even) {
+    background-color: transparent
+}
+
+.table tr:hover {
+    background-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+th {
+    background: #333;
+    color: #fff;
+}
+
+.pagination {
+    margin: 0;
+}
+
+.pagination li:hover {
+    cursor: pointer;
+}
+
+.header_wrap {
+    padding: 30px 0;
+}
+
+.num_rows {
+    width: 20%;
+    float: left;
+}
+
+.tb_search {
+    width: 20%;
+    float: right;
+}
+
+.pagination-container {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.pagination li {
+    display: inline-block;
+    background: #1d233c;
+    padding: 5px 15px;
+    margin: 0 3px 0 0;
+    border-radius: 3px;
+    color: #fff;
+}
+
+.pagination li.active,
+.pagination li:hover {
+    background: #131633;
+}
+
+.rows_count {
+    width: 20%;
+    float: right;
+    text-align: right;
+    color: #999;
+    font-size: 13px
+}
+
+.main-content {
+    background: rgba(255, 255, 255, 0.49);
+    padding: 15px;
+    border-radius: 5px;
+    overflow: hidden;
+    overflow-x: auto;
+}
+
+.main-content .table thead th {
+    vertical-align: bottom;
+    border: 0;
+    background: transparent;
+    padding: 15px 0.25rem;
+}
+
+select#maxRows {
+    background: #131633;
+    border: 0;
+    color: #fff;
+}
+
+.tb_search input {
+    background: #131633;
+    border: 0;
+    color: #fff;
+}
+
+.top-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 0 15px;
+}
+
+.top-header h3 {
+    color: #000;
+    font-size: 17px;
+}
+
+.top-header a {
+    color: #000;
+    background: #161934;
+    padding: 10px 20px;
+    box-shadow: 0 0 10px #4d4f63;
+    border-radius: 5px;
+    text-transform: capitalize;
+    transition: all 0.3s ease-in-out;
+    -webkit-transition: all 0.3s ease-in-out;
+}
+
+.top-header a:hover {
+    text-decoration: none;
+    background: #2a58ad;
+}
+
+.table td a.btn {
+    background: #2a58ad;
+    color: #fff;
+    text-transform: capitalize;
+    padding: 5px 10px;
+    font-size: 12px;
+    display: inline;
+}
+
+.table td a.btn:hover {
+    background: #00335f;
+    color: #fff;
+    text-decoration: none;
+}
+
+.about-content {
+    color: #000;
+    font-size: 14px;
+    margin: 0;
+    display: block;
+    line-height: 1.7;
+}
+
+.company-tables {
+    margin: 30px 0 0;
+}
+
+.listing small {
+    font-size: 85% !important;
+    width: 170px;
+    display: inline-block;
+    vertical-align: middle;
+    font-weight: 600;
+}
+
+.top-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.top-section .m-t-30.text-center {
+    margin: 0 48px 0 0;
+}
+/***************************************************version 3 block************************************/
+
+.version-second .card-body.cmpny-dtls .left-bar {
+    width: 32%;
+    text-align: left;
+    display: inline-block;
+    vertical-align: top;
+}
+.version-second .listing {
+    width: 100%;
+}
+.version-second .mid-bar {
+    width: 32%;
+    text-align: center;
+    display: inline-block;
+    vertical-align: top;
+    margin: 0 1% 0;
+}
+.version-second .button-set a {
+    width: 100%;
+    margin: 0 5px 9px;
+}
+.version-second .card-body.cmpny-dtls .right-bar {
+    width: 32%;
+    display: inline-block;
+    vertical-align: top;
+    margin-left: 5px;
+}
+.version-second .adress-info {
+    margin: 0;
+}
+.version-second .map-box iframe {
+    width: 100%;
+    height: 265px;
+}
+.version-third .adress-info {
+    width: 100%;
+    margin: 0;
+}
+.bottom-part  {
+    display: flex;
+    width: 100%;
+    flex-wrap: wrap;
+    align-items: center;
+    margin: 20px 0 0;
+    justify-content: space-between;
+}
+.bottom-part .button-set {
+    margin: 0;
+    
+}
+.bottom-part  .button-set a {
+    background: #00335f;
+    color: #fff;
+    width: 185px;
+    margin: 0 5px 0;
+    text-align: center;
+    padding: 10px 5px;
+    border-radius: 5px;
+    font-weight: 500;
+    font-size: 14px;
+    transition: all 0.3s ease-in-out;
+    -webkit-transition: all 0.3s ease-in-out;
+    display: inline-block;
+}
+.version-third .card-body.cmpny-dtls .right-bar {
+    width: 41%;
+}
+.bubble{
+  position: relative;
+  border: 1.5px solid #fff;
+  border-radius: 50%;
+}
+#wrapper {
+    position: absolute;
+    bottom: 20px;
+    left: 0px;
+    width: 95%;
+}
+.sidebar{position: relative;overflow: hidden;}
+/****************************************End Table Css ************************************************************/
+
+/******************************************************************login page css starts here***********************************************/
+section.login-section {
+    height: 100%;
+    width: 100%;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+section.login-section:after {
+    position: absolute;
+    content: "";
+    left: 0;
+    right: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    background: rgba(0, 51, 95, 0.9);
+    z-index: 0;
+}
+
+.login-form {
+    width: 100%;
+    max-width: 420px;
+    margin: auto;
+    position: relative;
+    z-index: 2;
+    text-align: center;
+}
+
+a.logo-img {
+    display: inline-block;
+    margin: 0 0 45px;
+}
+.login-form form {
+    position: relative;
+    z-index: 5;
+}
+.login-form .form-group {
+    margin-bottom: 24px;
+    position: relative;
+}
+.form-group i {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    -webkit-transform: translateY(-50%);
+    left: 15px;
+    color: #fff;
+}
+.login-form input.form-control {
+    background: rgba(255, 255, 255, 0.3);
+    height: 55px;
+    border: 0;
+    border-radius: 30px;
+    color: #fff;
+    padding: 0 30px 0 50px;
+    opacity: 1;
+}
+
+.login-form input.form-control:focus {
+    box-shadow: 0 0 0 0.2rem rgba(255, 255, 255, 1)
+}
+
+.login-form input[type="submit"] {
+    background: #0f4a7d;
+    width: 100%;
+    height: 55px;
+    border: 0;
+    border-radius: 30px;
+    text-transform: uppercase;
+    font-weight: 500;
+    font-size: 17px;
+    font-family: 'Roboto', sans-serif;
+    color: #fff;
+    cursor: pointer;
+    box-shadow: 0 0 10px rgba(7, 29, 47, 0.64);
+    transition: all 0.3s ease-in-out;
+    -webkit-transition: all 0.3s ease-in-out;
+}
+.login-form input[type="submit"]:hover{letter-spacing: 2px;}
+.login-form input::-webkit-input-placeholder {
+    color: #fff;
+    opacity: 1
+}
+
+.login-form input::-moz-placeholder {
+    color: #fff;
+    opacity: 1
+}
+
+.login-form input:-ms-input-placeholder {
+    color: #fff;
+    opacity: 1
+}
+
+.login-form input::-ms-input-placeholder {
+    color: #fff;
+    opacity: 1
+}
+
+.login-form input::placeholder {
+    color: #fff;
+    opacity: 1
+}
+
+/*****************************************************media queries starts here****************************************/
+
+@media screen and (max-width: 1500px) {
+    .listing small {
+        width: 135px;
+        font-size: 14px !important;
+    }
+
+    .main-content .table thead th {
+        font-size: 12px;
+    }
+}
+@media screen and (max-width: 1400px) {
+    .version-second .button-set a{font-size: 12px;}
+    .bottom-part .button-set a {
+    width: 135px;
+    margin: 0 5px 0;
+        font-size: 12px;
+}
+    .version-third .card-body.cmpny-dtls .right-bar {
+    width: 35%;
+}
+   .version-third .card-body.cmpny-dtls .left-bar {
+    width: 64%;
+}
+}
+

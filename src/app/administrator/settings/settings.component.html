@@ -1,0 +1,79 @@
+<div [className]="'page-head'">
+  <h2>Settings</h2>
+  <div [className]="'right-bar'">
+    <ul>
+      <li><a [routerLink]="['/administrator/dashboard']">Dashboard </a></li>
+      <li>Settings</li>
+    </ul>
+  </div>
+</div>
+<div [className]="'company-tables'">
+  <div [className]="'row'">
+    <div [className]="'col-md-12'">
+      <div [className]="'main-content'">
+        <div [className]="'col-sm-8 top-header-sec'">
+          <h3>Receive Email Settings</h3><span>(Site information will be sent on listed Email id.)</span>
+
+        </div>
+        <form>
+          <div [className]="'col-sm-4'">
+            <label>Email<span [className]="required">*</span></label>
+            <input type="text" id="search_input_all" placeholder="Enter Email" [className]="'form-control'">
+          </div>
+          <div [className]="'col-sm-12 buttons m-t33'">
+            <a [className]="'btn dark-blue'" href="#">Create</a>
+            <a [className]="'btn'" [routerLink]="['/administrator/']">Back</a>
+          </div>
+        </form>
+
+          <div [className]="'header_wrap'">
+            <div [className]="'num_rows'">
+
+              <div [className]="'form-group'">
+                <!--		Show Numbers Of Rows 		-->
+                <select [className]="'form-control'" (change)="onChange($event.target.value)" name="state" id="maxRows">
+                    <option *ngFor="let i of devices">{{i}}</option>
+                </select>
+
+              </div>
+            </div>
+            <div [className]="'tb_search'">
+              <input type="text" id="search_input_all" (keyup)='filterChanged($event.target.value)'  placeholder="Search.."
+                [className]="'form-control'">
+            </div>
+          </div>
+          <table [className]="'table table-striped table-class'" id="table-id">
+
+
+            <thead>
+              <tr>
+                <th (click)="sort('id')" >Row</th>
+                <th (click)="sort('email')">Email</th>                
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let email of filteredEmails;let i = index"> 
+                <td>{{ email.id }}</td>
+                <td>{{ email.email }}</td>                
+                <td>
+                  <a [className]="'btn dark-blue'" href="#">Modify</a>
+                  <a [className]="'btn dark-red'" href="#">Delete</a>
+                </td>                
+              </tr>                          
+            <tbody>
+          </table>
+          <!--		Start Pagination -->
+          <cm-pagination 
+                    [totalItems]="totalRecords" 
+                    [pageSize]="pageSize" 
+                    (pageChanged)="pageChanged($event)"></cm-pagination>
+          <div [className]='pagination-container'>            
+            <div *ngIf="fromPage != 0" [className]="rows_count">Showing {{fromPage}} to {{toPage}} of {{totalRecords}} entries</div>
+          </div>
+        
+
+      </div>
+    </div>
+  </div>
+</div>

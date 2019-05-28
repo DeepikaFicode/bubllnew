@@ -1,0 +1,94 @@
+
+<div class="page-head">
+  <h2>Manual Document </h2>
+  <div class="right-bar">
+    <ul>
+      <li><a href="#">Company Dashboard</a></li>
+      <li>Company Profile </li>
+    </ul>
+    <a class="back-btn" href="#">Back</a>
+  </div>
+</div>
+
+<div class="update-profile-section">
+
+  <div class="right-sidebar">
+    <form [formGroup]="manualDocumentForm" (ngSubmit)="onSubmit()">
+      <div class="row">
+        <div class="col-md-8">
+          <div class="form-group">
+            <label>Document Title<span class="required">*</span></label>
+            <textarea formControlName="doctitle" [ngClass]="{ 'is-invalid': submitted && manualDocumentForm.controls.doctitle.errors }" class="form-control" id="doctitle" placeholder="Document Title"></textarea>
+
+            <div *ngIf="submitted && manualDocumentForm.controls.doctitle.errors" class="invalid-feedback">
+              <div *ngIf="manualDocumentForm.controls.doctitle.errors.required"> required</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-8">
+          <div class="form-group">
+            <label>Upload File<span class="required">*</span></label>
+            <input type="file" formControlName="fuDocument" [ngClass]="{ 'is-invalid': submitted && manualDocumentForm.controls.doctitle.errors}" class="form-control" id="fuDocument" (change)="onFileChange($event)" />
+            <div *ngIf="submitted && manualDocumentForm.controls.doctitle.errors" class="invalid-feedback">
+              <div *ngIf="manualDocumentForm.controls.doctitle.errors.required"> required</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-12">
+        <input (click)= "onSubmit()" class="update-btn" type="button" value="Submit">
+      </div>
+
+
+    </form>
+  </div>
+</div>
+<div class="company-tables">
+  <div class="main-content">
+    <div class="top-header">
+      <h3>Manual Document(s)</h3>
+
+    </div>
+    <div class="row">
+      <div class="col-md-3">
+        <div class="form-group">
+          <label>Title</label>
+          <input type="text" class="form-control" id="searchTitle" placeholder="Title" (keyup)='filterByTitle($event.target.value)'>
+        </div>
+      </div>
+
+      <div class="col-sm-3 buttons m-t33"> <a class="btn dark-blue">Search</a> <a class="btn">Refresh</a> </div>
+
+    </div>
+    <table class="table table-class user-table" id="table-id">
+      <thead>
+      <tr><th>Row</th>
+        <th>Title</th>
+        <th>Action</th>
+
+
+      </tr></thead>
+      <tbody>
+      <tr *ngFor ="let item of filterData">
+        <td>{{item.rowid}}</td>
+        <td>{{item.doctitle}}</td>
+        <td><a class="btn">Download</a>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+
+    <div class="pagination-container">
+      <nav>
+        <ul class="pagination">
+          <li data-page="1" class="active"> <span>1<span class="sr-only">(current)</span></span> </li>
+          <li data-page="2"> <span>2<span class="sr-only">(current)</span></span> </li>
+          <li data-page="3"> <span>3<span class="sr-only">(current)</span></span> </li>
+        </ul>
+      </nav>
+      <div class="rows_count">Showing 1 to 10 of 27 entries</div>
+    </div>
+  </div>
+</div>
