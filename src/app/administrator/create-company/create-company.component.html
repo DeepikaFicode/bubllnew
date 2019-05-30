@@ -16,8 +16,8 @@
     <label>Company logo</label>
     <div class="avatar-upload">
       <div class="avatar-edit">
-        <input type="file" id="imageUpload" accept=".png, .jpg, .jpeg">
-        <label for="imageUpload"></label>
+        <input type="file" (change)="onFileChange($event)" id="logoImg" accept=".png, .jpg, .jpeg">
+        <label for="logoImg"></label>
       </div>
       <div class="avatar-preview">
         <div id="imagePreview" style="background-image: url(http://i.pravatar.cc/500?img=7);"></div>
@@ -25,7 +25,7 @@
     </div>
   </div>
   <div class="right-sidebar">
-    <form [formGroup]="companyForm">
+    <form [formGroup]="companyForm" (ngSubmit)="onSubmit()">
       <div class="row">
         <div class="col-md-4">
           <div class="form-group">
@@ -35,7 +35,6 @@
               <div *ngIf="companyForm.controls.name.errors.required">required</div>
             </div>
           </div>
-
 
         </div>
 
@@ -67,16 +66,35 @@
           <div class="form-group">
             <label>Contact person<span class="required">*</span></label>
             <input type="text" formControlName="contactPerson" [ngClass]="{ 'is-invalid': submitted && companyForm.controls.contactPerson.errors }" class="form-control" id="contactPerson" placeholder="Contact Person">
-            <div *ngIf="submitted && companyForm.controls.phone.errors" class="invalid-feedback">
-              <div *ngIf="companyForm.controls.phone.errors.required"> required</div>
+            <div *ngIf="submitted && companyForm.controls.contactPerson.errors" class="invalid-feedback">
+              <div *ngIf="companyForm.controls.contactPerson.errors.required"> required</div>
             </div>
           </div>
         </div>
 
         <div class="col-md-4">
           <div class="form-group">
+            <label>Address 1<span class="required">*</span></label>
+            <textarea formControlName="address" [ngClass]="{ 'is-invalid': submitted && companyForm.controls.address.errors }" class="form-control" id="address" placeholder="Address"></textarea>
+            <div *ngIf="submitted && companyForm.controls.address.errors" class="invalid-feedback">
+              <div *ngIf="companyForm.controls.address.errors.required"> required</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <div class="form-group">
+            <label>Address 2</label>
+            <textarea formControlName="address2" [ngClass]="{ 'is-invalid': submitted && companyForm.controls.address2.errors }" class="form-control" id="address2" placeholder="Address2"></textarea>
+            <div *ngIf="submitted && companyForm.controls.address2.errors" class="invalid-feedback">
+              <div *ngIf="companyForm.controls.address2.errors.required"> required</div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="form-group">
             <label>Town<span class="required">*</span></label>
-            <input type="text" formControlName="town" [ngClass]="{ 'is-invalid': submitted && companyForm.controls.contactPerson.errors }"class="form-control" id="town" placeholder="Town">
+            <input type="text" formControlName="town" [ngClass]="{ 'is-invalid': submitted && companyForm.controls.town.errors }"class="form-control" id="town" placeholder="Town">
             <div *ngIf="submitted && companyForm.controls.town.errors" class="invalid-feedback">
               <div *ngIf="companyForm.controls.town.errors.required"> required</div>
             </div>
@@ -85,40 +103,22 @@
 
         <div class="col-md-4">
           <div class="form-group">
-            <label>Country</label>
-            <input type="text" formControlName="country" [ngClass]="{ 'is-invalid': submitted && companyForm.controls.country.errors }" class="form-control" id="country" placeholder="Country">
-            <div *ngIf="submitted && companyForm.controls.country.errors" class="invalid-feedback">
-              <div *ngIf="companyForm.controls.country.errors.required"> required</div>
+            <label>County</label>
+            <input type="text" formControlName="county" [ngClass]="{ 'is-invalid': submitted && companyForm.controls.county.errors }" class="form-control" id="county" placeholder="County">
+            <div *ngIf="submitted && companyForm.controls.county.errors" class="invalid-feedback">
+              <div *ngIf="companyForm.controls.county.errors.required"> required</div>
             </div>
           </div>
         </div>
 
-        <div class="col-md-4">
-          <div class="form-group">
-            <label>Address line 1<span class="required">*</span></label>
-            <textarea formControlName="addressLine1" [ngClass]="{ 'is-invalid': submitted && companyForm.controls.addressLine1.errors }" class="form-control" id="addressLine1" placeholder="AddressLine2"></textarea>
-            <div *ngIf="submitted && companyForm.controls.addressLine1.errors" class="invalid-feedback">
-              <div *ngIf="companyForm.controls.addressLine1.errors.required"> required</div>
-            </div>
-          </div>
-        </div>
 
-        <div class="col-md-4">
-          <div class="form-group">
-            <label>Address line 2</label>
-            <textarea formControlName="addressLine2" [ngClass]="{ 'is-invalid': submitted && companyForm.controls.addressLine2.errors }" class="form-control" id="addressLine2" placeholder="AddressLine2"></textarea>
-            <div *ngIf="submitted && companyForm.controls.addressLine2.errors" class="invalid-feedback">
-              <div *ngIf="companyForm.controls.addressLine2.errors.required"> required</div>
-            </div>
-          </div>
-        </div>
 
         <div class="col-md-4">
           <div class="form-group">
             <label>postcode<span class="required">*</span></label>
-            <input type="text" formControlName="postcode" [ngClass]="{ 'is-invalid': submitted && companyForm.controls.postcode.errors }" class="form-control" id="postcode" placeholder="PostCode">
-            <div *ngIf="submitted && companyForm.controls.postcode.errors" class="invalid-feedback">
-              <div *ngIf="companyForm.controls.postcode.errors.required"> required</div>
+            <input type="text" formControlName="postalCode" [ngClass]="{ 'is-invalid': submitted && companyForm.controls.postalCode.errors }" class="form-control" id="postalCode" placeholder="PostCode">
+            <div *ngIf="submitted && companyForm.controls.postalCode.errors" class="invalid-feedback">
+              <div *ngIf="companyForm.controls.postalCode.errors.required"> required</div>
             </div>
           </div>
         </div>
@@ -126,142 +126,120 @@
         <div class="col-md-4">
           <div class="form-group">
             <label>Number Of Licenses Per Site(Bubll Master)<span class="required">*</span></label>
-            <input type="text" formControlName="numberOfLicense" [ngClass]="{ 'is-invalid': submitted && companyForm.controls.numberOfLicense.errors }" class="form-control" id="numberOfLicense" placeholder="Number Of License">
-            <div *ngIf="submitted && companyForm.controls.numberOfLicense.errors" class="invalid-feedback">
-              <div *ngIf="companyForm.controls.numberOfLicense.errors.required"> required</div>
+            <input type="text" formControlName="allocatedLicencesPerSite" [ngClass]="{ 'is-invalid': submitted && companyForm.controls.allocatedLicencesPerSite.errors }" class="form-control" id="allocatedLicencesPerSite" placeholder="Number Of License">
+            <div *ngIf="submitted && companyForm.controls.allocatedLicencesPerSite.errors" class="invalid-feedback">
+              <div *ngIf="companyForm.controls.allocatedLicencesPerSite.errors.required"> required</div>
             </div>
           </div>
         </div>
 
-        <div class="col-md-4">
+
+
+                <div class="col-md-4">
           <div class="form-group">
             <label>Valid Form<span class="required">*</span></label>
-            <input type="text" formControlName="validForm" [ngClass]="{ 'is-invalid': submitted && companyForm.controls.validForm.errors }" class="form-control" id="validForm" placeholder="Valid Form">
-            <div *ngIf="submitted && companyForm.controls.validForm.errors" class="invalid-feedback">
-              <div *ngIf="companyForm.controls.validForm.errors.required"> required</div>
+            <input type="text" formControlName="companyLicenseValidFrom" [ngClass]="{ 'is-invalid': submitted && companyForm.controls.companyLicenseValidFrom.errors }" class="form-control" id="companyLicenseValidFrom" placeholder="Valid Form">
+            <div *ngIf="submitted && companyForm.controls.companyLicenseValidFrom.errors" class="invalid-feedback">
+              <div *ngIf="companyForm.controls.companyLicenseValidFrom.errors.required"> required</div>
             </div>
 
           </div>
         </div>
-        <div class="col-md-4">
-          <div class="form-group">
-            <label>valid to<span class="required">*</span></label>
-            <input type="text" formControlName="validTo" [ngClass]="{ 'is-invalid': submitted && companyForm.controls.validTo.errors }"class="form-control" id="validTo" placeholder="valid To">
-            <div *ngIf="submitted && companyForm.controls.validTo.errors" class="invalid-feedback">
-              <div *ngIf="companyForm.controls.validTo.errors.required"> required</div>
-            </div>
-          </div>
-        </div>
+
 
         <div class="col-md-4">
           <div class="form-group">
-            <label>status<span class="required">*</span></label>
-            <select type="text" formControlName="status" [ngClass]="{ 'is-invalid': submitted && companyForm.controls.status.errors }" class="form-control" id="status">
-              <option value="Active">Active</option>
-              <option value="Inactive">Inactive</option>
-            </select>
-            <div *ngIf="submitted && companyForm.controls.status.errors" class="invalid-feedback">
-              <div *ngIf="companyForm.controls.status.errors.required"> required</div>
+            <label>Valid To<span class="required">*</span></label>
+            <input type="text" formControlName="companyLicenseValidTo" [ngClass]="{ 'is-invalid': submitted && companyForm.controls.companyLicenseValidTo.errors }"class="form-control" id="companyLicenseValidTo"  placeholder="Valid To">
+            <div *ngIf="submitted && companyForm.controls.companyLicenseValidTo.errors" class="invalid-feedback">
+              <div *ngIf="companyForm.controls.companyLicenseValidTo.errors.required"> required</div>
             </div>
           </div>
         </div>
 
+
+
+
+<!--        <div class="col-md-4">-->
+<!--          <div class="form-group">-->
+<!--            <label>status<span class="required">*</span></label>-->
+<!--            <select type="text" formControlName="status" [ngClass]="{ 'is-invalid': submitted && companyForm.controls.status.errors }" class="form-control" id="status">-->
+<!--              <option value="Active">Active</option>-->
+<!--              <option value="Inactive">Inactive</option>-->
+<!--            </select>-->
+<!--            <div *ngIf="submitted && companyForm.controls.status.errors" class="invalid-feedback">-->
+<!--              <div *ngIf="companyForm.controls.status.errors.required"> required</div>-->
+<!--            </div>-->
+<!--          </div>-->
+<!--        </div>-->
+
+<!--        <div class="col-md-8">-->
+<!--          <div class="form-group">-->
+<!--            <label>Language <span class="required">*</span></label>-->
+<!--            <p class="form-field pd-checkbox required no-label" formArrayName="language" *ngFor="let order of companyForm.controls.language.controls; let i = index">-->
+<!--              <input id="checkbox{{i}}"  value="{{language[i].id}}" type="checkbox" [formControlName]="i">-->
+<!--              <label class="inline" for="checkbox{{i}}">{{language[i].name}}</label>-->
+<!--            </p>-->
+<!--          </div>-->
+<!--        </div>-->
 
         <div class="col-md-4">
           <div class="form-group">
             <label>support<span class="required">*</span></label>
-            <select type="text" formControlName="support" [ngClass]="{ 'is-invalid': submitted && companyForm.controls.support.errors }" class="form-control" id="support">
+            <select type="text" formControlName="isSupport" [ngClass]="{ 'is-invalid': submitted && companyForm.controls.isSupport.errors }" class="form-control" id="isSupport">
               <option>Yes</option>
               <option>No</option>
             </select>
-            <div *ngIf="submitted && companyForm.controls.support.errors" class="invalid-feedback">
-              <div *ngIf="companyForm.controls.support.errors.required"> required</div>
+            <div *ngIf="submitted && companyForm.controls.isSupport.errors" class="invalid-feedback">
+              <div *ngIf="companyForm.controls.isSupport.errors.required"> required</div>
             </div>
 
           </div>
         </div>
 
+
+
+<!--        <div class="col-md-4">-->
+<!--          <div class="form-group">-->
+<!--            <label>Default Language<span class="required">*</span></label>-->
+<!--            <select type="text" formControlName="defaultLanguage" [ngClass]="{ 'is-invalid': submitted && companyForm.controls.defaultLanguage.errors }" class="form-control" id="defaultLanguage">-->
+<!--            </select>-->
+<!--            <div *ngIf="submitted && companyForm.controls.defaultLanguage.errors" class="invalid-feedback">-->
+<!--              <div *ngIf="companyForm.controls.defaultLanguage.errors.required"> required</div>-->
+<!--            </div>-->
+
+<!--          </div>-->
+<!--        </div>-->
 
         <div class="col-md-4">
           <div class="form-group">
             <label>Controller Change Limit *<span class="required">*</span></label>
-            <select type="text" formControlName="controllerChangeLimit" [ngClass]="{ 'is-invalid': submitted && companyForm.controls.controllerChangeLimit.errors }" class="form-control" id="controllerChangeLimit">
-              <option>Eng</option>
-              <option>Ger</option>
-            </select>
-            <div *ngIf="submitted && companyForm.controls.support.errors" class="invalid-feedback">
-              <div *ngIf="companyForm.controls.support.errors.required"> required</div>
+            <input type="text" formControlName="controllerChangeLimit" [ngClass]="{ 'is-invalid': submitted && companyForm.controls.controllerChangeLimit.errors }" class="form-control" id="controllerChangeLimit" placeholder="Controller Change Limit">
+            <div *ngIf="submitted && companyForm.controls.controllerChangeLimit.errors" class="invalid-feedback">
+              <div *ngIf="companyForm.controls.controllerChangeLimit.errors.required"> required</div>
             </div>
           </div>
         </div>
 
 
-        <div class="col-md-8">
-
-          <div class="form-group">
-            <label>Language<span class="required">*</span></label>
-
-
-
-            <p class="form-field pd-checkbox required no-label">
-
-              <input id="checkbox1" name="checkbox1" onchange="" type="checkbox" value="" formcontrol="checkbox1">
-
-              <label class="inline" for="checkbox1">Chinese (Simplified)</label>
-
-            </p>
-
-            <p class="form-field pd-checkbox required no-label">
-
-              <input id="checkbox2" name="checkbox2" onchange="" type="checkbox" value="" formcontrol="checkbox2">
-
-              <label class="inline" for="checkbox2">English</label>
-            </p>
-
-
-            <p class="form-field pd-checkbox required no-label">
-
-              <input id="checkbox3" name="checkbox3" onchange="" type="checkbox" value="" formcontrol="checkbox3">
-
-              <label class="inline" for="checkbox3">French</label>
-            </p>
-
-            <p class="form-field pd-checkbox required no-label">
-
-              <input id="checkbox4" name="checkbox4" onchange="" type="checkbox" value="" formcontrol="checkbox4">
-
-              <label class="inline" for="checkbox4">German</label>
-            </p>
-
-
-            <p class="form-field pd-checkbox required no-label">
-
-              <input id="checkbox5" name="checkbox5" onchange="" type="checkbox" value="" formcontrol="checkbox5">
-
-              <label class="inline" for="checkbox5">Russian</label>
-            </p>
-
-          </div>
-        </div>
-
       </div>
 
 
-      <div class="col-md-4">
-        <label>Update background<span class="required">*</span></label>
-        <div class="box">
-          <div class="js--image-preview"></div>
-          <div class="upload-options">
-            <label>
-              <input type="file" class="image-upload" formControlName="updateBackground" [ngClass]="{ 'is-invalid': submitted && companyForm.controls.controllerChangeLimit.errors }"class="form-control"id="updateBackground" accept="image/*">
-            </label>
+<!--      <div class="col-md-4">-->
+<!--      <label>Update background<span class="required">*</span></label>-->
+<!--      <div class="box">-->
+<!--        <div class="js&#45;&#45;image-preview"></div>-->
+<!--        <div class="upload-options">-->
+<!--          <label>-->
+<!--            <input type="file" class="image-upload" formControlName="backgroundImg" [ngClass]="{ 'is-invalid': submitted && companyForm.controls.backgroundImg.errors }"class="form-control"id="backgroundImg" accept="image/*">-->
+<!--          </label>-->
 
-            <div *ngIf="submitted && companyForm.controls.support.errors" class="invalid-feedback">
-              <div *ngIf="companyForm.controls.support.errors.required"> required</div>
-            </div>
-          </div>
-        </div>
-      </div>
+<!--          <div *ngIf="submitted && companyForm.controls.backgroundImg.errors" class="invalid-feedback">-->
+<!--            <div *ngIf="companyForm.controls.backgroundImg.errors.required"> required</div>-->
+<!--          </div>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--    </div>-->
       <div class="col-md-12">
         <input (click) = "onSubmit()" class="update-btn" type="button" value="Submit">
       </div>
@@ -275,7 +253,7 @@
     <div class="top-header">
       <h3>SRegistered Company(s)</h3>
       <div class="event-num">
-        <div class="buttons " (click)="exportAsXLSX()"><a class="btn dark-blue" >Export To Excel</a></div>
+        <div class="buttons " (click)="exportAsXLSX()"><a class="btn dark-blue" href="#">Export To Excel</a></div>
         <div class="buttons "><a class="btn dark-blue" href="#">Back</a></div>
       </div>
     </div>
@@ -305,7 +283,12 @@
         <td>{{item.supportRequired}}</td>
         <td>{{item.controllerLimit}}</td>
         <td>{{item.status}}</td>
-        <td><button class="btn">Change Status</button></td>
+<td>
+        <div class="button-switch">
+          <input type="checkbox" (click)="loadModal($event.value)" id="switch-orange" class="switch" value="Change Status">
+        </div>
+<!--        <td><button class="btn" (click)="loadModal($event.value)">Change Status</button></td>td-->
+</td>
       </tr>
 
       </tbody>

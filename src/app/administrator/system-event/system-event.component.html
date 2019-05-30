@@ -95,9 +95,9 @@
                 <input id="todate" name="todate" [(ngModel)]="todate"
                        type="date" class="form-control" />
               </div>
-
             </div>
-            <div class="col-sm-3 buttons m-t33"> <button class="btn dark-blue" (click)='registeredUser($event)'>Search</button> <a class="btn" href="#">Back</a> </div>
+
+            <div class="col-sm-3  m-t33"> <button class="update-btn" (click)='registeredUser($event)'>Search</button> <button class="update-btn" href="#">Back</button> </div>
 
           </div>
 
@@ -114,7 +114,7 @@
               <option value="1">Export To Excel</option>
               <option value="2">Archive Data And Export To Excel</option>
             </select>
-            <div class="buttons "><a class="btn " (click)="exportAsXLSX()">Submit</a></div>
+            <div class="buttons "><button class="btn " (click)="exportAsXLSX()">Submit</button></div>
           </div>
         </div>
         <table class="table table-class user-table" id="table-id">

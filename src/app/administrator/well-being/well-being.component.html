@@ -38,14 +38,16 @@
                 <input id="todate" name="todate" [(ngModel)]="todate"
                        type="date" class="form-control" />
               </div>
-
-              <div class="col-sm-3 buttons m-t33"> <a class="btn dark-blue" (click)='searchWellBeing($event)'>Search</a> <a class="btn" href="#">Back</a> </div>
-
             </div>
+
+              <div class="col-sm-3 m-t33"> <button class="update-btn" (click)='searchWellBeing($event)'>Search</button> <button class="update-btn" href="#">Back</button> </div>
+
+
 
           </div>
         </div>
       </div>
+    </div>
       <div class="col-md-12">
         <div class="main-content">
           <div class="top-header">
@@ -56,7 +58,7 @@
                 <option value="1">Export To Excel</option>
                 <option value="2">Archive Data And Export To Excel</option>
               </select>
-              <div class="buttons "><a class="btn" (click)="exportAsXLSX()">Submit</a></div>
+              <div class="buttons "><button class="btn" (click)="exportAsXLSX()">Submit</button></div>
             </div>
           </div>
           <table class="table table-class user-table" id="table-id">
@@ -103,6 +105,6 @@
           </div>
         </div>
       </div>
-    </div>
+
   </div>
 </div>

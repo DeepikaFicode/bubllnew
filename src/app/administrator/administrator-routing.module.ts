@@ -10,6 +10,9 @@ import {WellBeingComponent} from './well-being/well-being.component';
 import { BroadcastNotificationComponent } from '../shared/user-communication/broadcast-notification/broadcast-notification.component';
 import { ManualDocumentsComponent} from '../shared/user-communication/manual-documents/manual-documents.component';
 import { SendManualComponent} from '../shared/user-communication/send-manual/send-manual.component';
+import { CompanyProfileComponent} from './company-profile/company-profile.component';
+import {MasterLicenseDetailsComponent} from './viewImeiNo/master-license-details/master-license-details.component';
+import {RemoteLicenseDetailsComponent} from './viewImeiNo/remote-license-details/remote-license-details.component';
 
 const routes: Routes = [
   {
@@ -24,7 +27,10 @@ const routes: Routes = [
       { path: 'companyUserWellbeing', component: WellBeingComponent },
       { path: 'broadcastNotification', component: BroadcastNotificationComponent },
       { path: 'manualDocuments', component: ManualDocumentsComponent },
-      { path: 'sendManual', component: SendManualComponent }
+      { path: 'sendManual', component: SendManualComponent },
+      { path: 'companyProfile', component: CompanyProfileComponent },
+      { path: 'masterLicenseDetails', component: MasterLicenseDetailsComponent },
+      { path: 'remoteLicenseDetails', component: RemoteLicenseDetailsComponent }
     ]
   }
 ];

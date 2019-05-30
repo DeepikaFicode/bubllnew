@@ -7,7 +7,7 @@ import { ISettingsEmail, IPagedResults } from '../../shared/interfaces';
   selector: 'app-settings',
   templateUrl: './settings.component.html',
   styleUrls: ['./settings.component.css'],
-  //changeDetection: ChangeDetectionStrategy.OnPush
+  // changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class SettingsComponent implements OnInit {
 
@@ -18,27 +18,27 @@ export class SettingsComponent implements OnInit {
   fromPage = 0;
   toPage = 0;
   devices = [5, 10, 15, 20, 25];
-  //@Input() emails: ISettingsEmail[] = [];
+  // @Input() emails: ISettingsEmail[] = [];
   constructor(
     private helperService: HelperserviceService,
     private settingsService: SettingsService
   ) { }
 
   ngOnInit() {
-    this.getSettingsEmails(1,this.pageSize);
+    this.getSettingsEmails(1, this.pageSize);
   }
 
-  getSettingsEmails(page: number,pageSize:number) {
+  getSettingsEmails(page: number, pageSize: number) {
     this.settingsService.getSettingsEmails((page > 1) ? (page) : 1, pageSize)
       .subscribe((response: IPagedResults<ISettingsEmail[]>) => {
-        //console.log( response );
+        // console.log( response );
         this.emails = this.filteredEmails = response.results;
         this.totalRecords = response.totalRecords;
         this.toPage = this.filteredEmails[this.filteredEmails.length - 1].id;
         this.fromPage = this.filteredEmails[0].id;
       },
         (err: any) => console.log(err));
-    //() => this.logger.log('getCustomersPage() retrieved customers for page: ' + page));
+    // () => this.logger.log('getCustomersPage() retrieved customers for page: ' + page));
   }
 
   sort(prop: string) {
@@ -56,12 +56,12 @@ export class SettingsComponent implements OnInit {
   }
 
   pageChanged(page: number) {
-    this.getSettingsEmails(page,this.pageSize);
+    this.getSettingsEmails(page, this.pageSize);
   }
 
   onChange(deviceValue) {
-    
-    this.getSettingsEmails(1,deviceValue);
+
+    this.getSettingsEmails(1, deviceValue);
     this.pageSize = deviceValue;
   }
 

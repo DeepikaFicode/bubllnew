@@ -4,7 +4,7 @@ import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { map, catchError } from 'rxjs/operators';
 
-import { ISettingsEmail, IPagedResults } from '../../shared/interfaces';
+import { ISettingsEmail, IPagedResults, ISettingsEmails } from '../../shared/interfaces';
 
 @Injectable({
   providedIn: 'root'

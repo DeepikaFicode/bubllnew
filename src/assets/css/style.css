@@ -624,7 +624,7 @@ select#maxRows {
     font-size: 17px;
 }
 
-.top-header a {
+.top-header a, .top-header button {
     color: #fff;
     background: #00335f;
     padding: 10px 20px;
@@ -633,9 +633,10 @@ select#maxRows {
     text-transform: capitalize;
     transition: all 0.3s ease-in-out;
     -webkit-transition: all 0.3s ease-in-out;
+  cursor: pointer;
 }
 
-.top-header a:hover {
+.top-header a:hover, .top-header button:hover {
     text-decoration: none;
     background: #2a58ad;
 }
@@ -900,7 +901,21 @@ a.logo-img {
     color: #fff;
     opacity: 1
 }
-
+.update-btn {
+  display: inline-block;
+  background: #00335f;
+  color: #fff;
+  padding: 6px 23px;
+  border: 0;
+  margin: 0 4px;
+  line-height: normal;
+  height: auto;
+  cursor: pointer;
+}
+.update-btn:hover {
+  text-decoration: none;
+  background: #2a58ad;
+}
 /*********************************************************************update profile page****************************************************/
 
 .update-profile-section {
@@ -921,6 +936,7 @@ span.required {
 }
 .update-profile-section form input, .update-profile-section form textarea, .update-profile-section form select{width: 100%;height: 40px;border:1px solid #ccc !important;padding:0 15px;color:#000;font-size:15px;}
 .update-profile-section form textarea{padding: 5px 15px;}
+.update-profile-section form textarea.txtarea{height: 90px;}
 .update-profile-section form input:focus, .update-profile-section form textarea:focus, .update-profile-section form select:focus{border-color: #00335f !important;}
 .box {
   display: block;
@@ -1063,17 +1079,17 @@ i.material-icons {
   }
 }
 .update-profile-section form .update-btn {
-    display: block;
-    width: 200px;
-    clear: both;
-    background: #00335f;
-    color: #fff;
-    height: 55px;
-    border-radius: 5px;
-    text-transform: uppercase;
-    font-size: 18px;
-    margin: 30px 0 0;
-    cursor: pointer;
+  display: block;
+  width: 144px;
+  clear: both;
+  background: #00335f;
+  color: #fff;
+  height: 50px;
+  border-radius: 5px;
+  text-transform: uppercase;
+  font-size: 18px;
+  margin: 30px auto 0;
+  cursor: pointer;
 }
 
 /*************************************************************LOGO UPDATE**************************************************/

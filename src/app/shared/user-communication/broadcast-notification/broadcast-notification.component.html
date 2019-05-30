@@ -12,11 +12,10 @@
 
 <div class="update-profile-section">
 
-  <div class="right-sidebar">
     <form [formGroup]="broadcastNotificationForm">
       <div class="row">
 
-        <div class="col-md-3">
+        <div class="col-md-6">
           <div class="form-group">
             <label>Company Email</label>
             <input type="text" formControlName="companyemail"  class="form-control" id="companyemail" placeholder="Email">
@@ -26,10 +25,14 @@
         </div>
 
 
-        <div class="col-md-3">
+        <div class="col-md-6">
           <div class="form-group">
             <label>Title<span class="required">*</span></label>
-            <textarea formControlName="title" [ngClass]="{ 'is-invalid': submitted && broadcastNotificationForm.controls.title.errors }" class="form-control" id="title" placeholder="Title"></textarea>
+
+            <input type="text" formControlName="title"  [ngClass]="{ 'is-invalid': submitted && broadcastNotificationForm.controls.title.errors }" class="form-control" id="title" placeholder="Title">
+
+
+<!--            <textarea formControlName="title" [ngClass]="{ 'is-invalid': submitted && broadcastNotificationForm.controls.title.errors }" class="form-control" id="title" placeholder="Title"></textarea>-->
 
             <div *ngIf="submitted && broadcastNotificationForm.controls.title.errors" class="invalid-feedback">
               <div *ngIf="broadcastNotificationForm.controls.title.errors.required"> required</div>
@@ -37,10 +40,10 @@
           </div>
         </div>
 
-        <div class="col-md-6">
+        <div class="col-md-12">
           <div class="form-group">
             <label>Message<span class="required">*</span></label>
-            <textarea formControlName="message" ng-model="message" [ngClass]="{ 'is-invalid': submitted && broadcastNotificationForm.controls.message.errors }" class="form-control" id="message" placeholder="Message :: Max Length 150 Characters"></textarea>
+            <textarea formControlName="message" ng-model="message" [ngClass]="{ 'is-invalid': submitted && broadcastNotificationForm.controls.message.errors }" class="form-control txtarea" id="message" placeholder="Message :: Max Length 150 Characters"></textarea>
 
             <div *ngIf="submitted && broadcastNotificationForm.controls.message.errors" class="invalid-feedback">
               <div *ngIf="broadcastNotificationForm.controls.message.errors.required"> required</div>
@@ -48,17 +51,17 @@
           </div>
         </div>
 
-      </div>
+
 
 
 
       <div class="col-md-12">
         <input (click) = "onSubmit()" class="update-btn" type="button" value="Send">
       </div>
-
+      </div>
 
     </form>
-  </div>
+
 </div>
 <div class="company-tables">
   <div class="main-content">
@@ -73,7 +76,7 @@
           <input type="text" class="form-control" id="searchTitle" placeholder="Title" (keyup)='filterByTitle($event.target.value)'>
         </div>
       </div>
-      <div class="col-sm-3 buttons m-t33"> <a class="btn dark-blue">Search</a> <a class="btn">Refresh</a> </div>
+      <div class="col-sm-3 m-t33"> <button class="update-btn">Search</button> <button class="update-btn">Refresh</button> </div>
     </div>
 
     <table class="table table-class user-table" id="table-id">

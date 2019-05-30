@@ -2,7 +2,7 @@ import {Component, OnInit } from '@angular/core';
 import {FormGroup} from '@angular/forms';
 import {NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import {NgForm } from '@angular/forms';
-import {NavigateUrls} from '../../shared/navigate-urls';
+
 @Component({
   selector: 'app-system-event',
   templateUrl: './system-event.component.html',
